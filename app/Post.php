@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    protected $fillabe = [
+    // protected $guarded = [];
+    protected $fillable = [
         'user_id', 'category_id', 'name', 'slug', 'excerpt',
         'body', 'status', 'file'
     ];
@@ -26,9 +27,6 @@ class Post extends Model
     public function tags()
     {
         //Un Post tiene y pertene a muchas etiquetas
-      return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
-
-
-
 }
